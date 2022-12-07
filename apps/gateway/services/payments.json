@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/payments": {
+      "get": {
+        "operationId": "payments",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "payments"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Payments service example",
+    "description": "Everything about payments",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "payments",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1"
+          },
+          "description": {
+            "type": "string",
+            "example": "1"
+          },
+          "price": {
+            "type": "string",
+            "example": "1"
+          }
+        },
+        "required": [
+          "id",
+          "price",
+          "description"
+        ]
+      } 
+    }
+  }
+}

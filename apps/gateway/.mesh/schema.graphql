@@ -1,0 +1,47 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  payments: [Payment]
+  products: [Product]
+  reviews: Review
+  getAccount(
+    "id"
+    id: String
+  ): Account
+}
+
+type Payment {
+  id: String!
+  description: String!
+  price: String!
+}
+
+type Product {
+  id: String!
+  name: String!
+}
+
+type Review {
+  message: String!
+}
+
+type Mutation {
+  login(input: LoginInput_Input): Session
+}
+
+type Account {
+  id: String!
+}
+
+type Session {
+  access_token: String!
+  refresh_token: String!
+}
+
+input LoginInput_Input {
+  email: String!
+  password: String!
+}

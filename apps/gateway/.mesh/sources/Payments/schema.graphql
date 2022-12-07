@@ -1,0 +1,13 @@
+schema {
+  query: Query
+}
+
+type Query {
+  payments: [Payment]
+}
+
+type Payment {
+  id: String!
+  description: String!
+  price: String!
+}

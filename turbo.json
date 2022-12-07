@@ -1,0 +1,7 @@
+{
+  "pipeline": {
+    "dev": {},
+    "start": {},
+    "build": {}
+  }
+}

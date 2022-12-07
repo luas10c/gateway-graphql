@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/reviews": {
+      "get": {
+        "operationId": "reviews",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns review object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "reviews"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Reviews service example",
+    "description": "Everything about books",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "reviews",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Review": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "hello"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      } 
+    }
+  }
+}

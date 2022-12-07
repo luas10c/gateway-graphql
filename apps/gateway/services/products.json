@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/products": {
+      "get": {
+        "operationId": "products",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns products object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "products"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Products service example",
+    "description": "Everything about product",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "products",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      } 
+    }
+  }
+}

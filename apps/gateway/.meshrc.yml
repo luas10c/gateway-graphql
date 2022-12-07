@@ -1,0 +1,58 @@
+sources:
+  - name: Payments
+    handler:
+      openapi:
+        baseUrl: http://localhost:4001
+        source: ./services/payments.json
+        operationHeaders:
+          Authorization: '{context.headers.authorization}'
+  - name: Products
+    handler:
+      openapi:
+        baseUrl: http://localhost:4002
+        source: ./services/products.json
+        operationHeaders:
+          Authorization: '{context.headers.authorization}'
+  - name: Reviews
+    handler:
+      openapi:
+        baseUrl: http://localhost:4003
+        source: ./services/reviews.json
+        operationHeaders:
+          Authorization: '{context.headers.authorization}'
+  - name: Accounts
+    handler:
+      openapi:
+        baseUrl: http://localhost:4004
+        source: ./services/accounts.json
+        operationHeaders:
+          Authorization: '{context.headers.authorization}'
+
+transforms:
+- resolversComposition:
+    mode: bare | wrap
+    compositions:
+    - resolver: 'Query.payments'
+      composer: is-auth#isAuth
+    - resolver: 'Mutation.*'
+      composer: is-auth#isAuth
+
+plugins:
+  - rateLimit:
+      config:
+        # Add as many rules as you want
+        - type: Query
+          field: payments
+          max: 1 # requests limit for a time period
+          ttl: 1000 # time period
+          identifier: '{context.req.socket.remoteAddress}'
+        - type: Query
+          field: reviews
+          max: 1 # requests limit for a time period
+          ttl: 1000 # time period
+          identifier: '{context.req.socket.remoteAddress}'
+        - type: Query
+          field: products
+          max: 1
+          ttl: 1000
+          identifier: '{context.req.socket.remoteAddress}'
