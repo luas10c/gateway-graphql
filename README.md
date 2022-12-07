@@ -1,3 +1,3 @@
-# Api Gateway with Kong
+# Api Gateway with Graphql Mesh
 
-Aprendendo configurar o kong e o konga interface gráfica do kong
+Aprendendo configurar o Graphql Mesh
